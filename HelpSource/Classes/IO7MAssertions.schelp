@@ -1,0 +1,117 @@
+TITLE:: IO7MAssertions
+summary:: Assertion functions.
+categories:: Assertions
+
+DESCRIPTION::
+The IO7MAssertions class provides functions for checking that expected
+conditions in code are true, and producing useful error messages when
+they are not. All of the check* methods are functionally identical except
+for the error messages that they produce on failure. For example,
+checkAssertion produces an error message that claims an "ASSERTION VIOLATION",
+whilst checkPrecondition produces an error message that claims a
+"PRECONDITION VIOLATION".
+
+
+CLASSMETHODS::
+
+METHOD:: checkAssertion
+Check that the given condition is true for the given expression.
+
+ARGUMENT:: expression
+The expression
+
+ARGUMENT:: condition
+The condition
+
+ARGUMENT:: message
+A description of the expression
+
+returns:: expression
+
+
+METHOD:: checkInvariant
+Check that the given condition is true for the given expression.
+
+ARGUMENT:: expression
+The expression
+
+ARGUMENT:: condition
+The condition
+
+ARGUMENT:: message
+A description of the expression
+
+returns:: expression
+
+
+METHOD:: checkPrecondition
+Check that the given condition is true for the given expression.
+
+ARGUMENT:: expression
+The expression
+
+ARGUMENT:: condition
+The condition
+
+ARGUMENT:: message
+A description of the expression
+
+returns:: expression
+
+
+METHOD:: checkPostcondition
+Check that the given condition is true for the given expression.
+
+ARGUMENT:: expression
+The expression
+
+ARGUMENT:: condition
+The condition
+
+ARGUMENT:: message
+A description of the expression
+
+returns:: expression
+
+
+INSTANCEMETHODS::
+
+
+EXAMPLES::
+
+code::
+
+// Succeeds
+var x = 1;
+IO7MAssertions.checkAssertion(x, x > 0, "Input must be > 0");
+
+// Raises IO7MAssertionError
+var x = -2;
+IO7MAssertions.checkAssertion(x, x > 0, "Input must be > 0");
+
+// Succeeds
+var x = 1;
+IO7MAssertions.checkInvariant(x, x > 0, "Input must be > 0");
+
+// Raises IO7MAssertionError
+var x = -2;
+IO7MAssertions.checkInvariant(x, x > 0, "Input must be > 0");
+
+// Succeeds
+var x = 1;
+IO7MAssertions.checkPrecondition(x, x > 0, "Input must be > 0");
+
+// Raises IO7MAssertionError
+var x = -2;
+IO7MAssertions.checkPrecondition(x, x > 0, "Input must be > 0");
+
+// Succeeds
+var x = 1;
+IO7MAssertions.checkPostcondition(x, x > 0, "Input must be > 0");
+
+// Raises IO7MAssertionError
+var x = -2;
+IO7MAssertions.checkPostcondition(x, x > 0, "Input must be > 0");
+
+::
+
